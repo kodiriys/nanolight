@@ -1,14 +1,18 @@
 # nanolight
 Extremely lightweight, language agnostic code syntax highlighting for your front end app. Compatible with anything, including Tailwind CSS and Svelte.
 
-# Usage
+# Usage with Node
 ```javascript
 // Node JS
 import { highlight } from "$lib/nanolight";
 highlight('pre code'); // Use any CSS query to select what elements to highlight dynamically
+```
 
+# Usage outside Node
+```html
 // Vanilla JS
 // WARNING, you have to use the "vanilla" version of the script if running directly in a browser.
+<link rel="stylesheet" href="./nanolight.css">
 <script type="text/javascript" src="./nanolight-vanilla.js"></script>
 <script type="text/javascript">
    window.onload = () => {
@@ -39,14 +43,14 @@ highlight('pre code'); // Use any CSS query to select what elements to highlight
 
     }
 </script>
-
-// See demo for example output
 ```
 
 # Customizing the style
-Nanolight exposes CSS classes so you can specify your custom CSS. Try it by copy pasting the below:
+Nanolight exposes CSS classes for customization. (See demo for working example.)
 
 ```CSS
+/* NANOLIGHT CONFIGURATION */
+
 /* Keywords */
 .nanolight-keywords {
     /* Tailwind */
@@ -54,13 +58,13 @@ Nanolight exposes CSS classes so you can specify your custom CSS. Try it by copy
     font-family: 'Fira Code', monospace;
     -webkit-font-smoothing: antialiased;
     letter-spacing: 0.1em;
-    color: #feca57;
+    color: #6c5ce7;
     font-variant-ligatures: common;
     text-shadow:
-        0 0 9px #feca57,
-        0 0 2px #feca57,
-        0 0 21px #feca57,
-        0 0 102px #feca57;
+        0 0 9px #6c5ce7,
+        0 0 2px #6c5ce7,
+        0 0 21px #6c5ce7,
+        0 0 102px #6c5ce7;
 }
 
 /* Punctuation */
@@ -79,25 +83,9 @@ Nanolight exposes CSS classes so you can specify your custom CSS. Try it by copy
 /* Strings and regular expressions */
 .nanolight-strex {
     /* Tailwind */
-    /* @apply font-fira-code opacity-100 antialiased text-[#c8d6e5] */
+    /* @apply font-fira-code opacity-100 antialiased text-[#4cd137] */
     font-family: 'Fira Code', monospace;
     opacity: 1;
-    -webkit-font-smoothing: antialiased;
-    color: #c8d6e5;
-    font-variant-ligatures: common;
-    text-shadow:
-        0 0 7px #ecf0f1b9,
-        0 0 3px #ecf0f1c7,
-        0 0 21px #ecf0f1a2;
-}
-
-/* Comments */
-.nanolight-comments {
-    /* Tailwind */
-    /* @apply font-fira-code opacity-100 italic antialiased text-[#4cd137] */
-    font-family: 'Fira Code', monospace;
-    opacity: 1;
-    font-style: italic;
     -webkit-font-smoothing: antialiased;
     color: #4cd137;
     font-variant-ligatures: common;
@@ -107,39 +95,60 @@ Nanolight exposes CSS classes so you can specify your custom CSS. Try it by copy
         0 0 21px #4cd137;
 }
 
+/* Comments */
+.nanolight-comments {
+    /* Tailwind */
+    /* @apply font-fira-code opacity-100 italic antialiased text-[#b2bec3] */
+    font-family: 'Fira Code', monospace;
+    opacity: 0.5;
+    font-style: italic;
+    -webkit-font-smoothing: antialiased;
+    color: #b2bec3;
+    font-variant-ligatures: common;
+    /* text-shadow:
+        0 0 7px #b2bec3,
+        0 0 3px #b2bec3,
+        0 0 21px #b2bec3; */
+}
+
 /* Line numbers */
 .nanolight-line-numbers {
     /* Tailwind */
-    /* @apply font-fira-code antialiased text-[#BDC3C7] text-sm inline */
+    /* @apply font-fira-code antialiased text-[#ffd32a] text-sm inline */
     font-family: 'Fira Code', monospace;
     -webkit-font-smoothing: antialiased;
-    color: #BDC3C7;
+    color: #ffd32a;
     font-size: 0.875rem;
     display: inline;
     font-variant-ligatures: common;
     text-shadow:
-        0 0 7px #BDC3C7,
-        0 0 3px #BDC3C7;
+        0 0 7px #ffd32a,
+        0 0 3px #ffd32a;
 }
 
 /* Any code that doesn't fall into the above categories*/
 .nanolight-normal {
     /* Tailwind */
-    /* @apply font-fira-code antialiased text-sm md:text-base text-[#ff9ff3] */
+    /* @apply font-fira-code antialiased text-sm md:text-base text-[#dcdde1] */
     font-family: 'Fira Code', monospace;
     -webkit-font-smoothing: antialiased;
     font-size: 0.875rem;
-    color: #ff9ff3;
+    color: #dcdde1;
     font-variant-ligatures: common;
     text-shadow:
-        0 0 7px #ff9ff3,
-        0 0 3px #ff9ff3;
+        0 0 7px #dcdde1,
+        0 0 3px #dcdde1;
 }
 
 @media (min-width: 768px) {
     .nanolight-normal {
         font-size: 1rem;
     }
+
+    pre code {
+        font-size: 1rem;
+    }
 }
+
 
 ```

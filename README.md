@@ -9,9 +9,8 @@ highlight('pre code'); // Use any CSS query to select what elements to highlight
 ```
 
 # Usage outside Node
+Use the "vanilla" version of the script if running directly in a browser.
 ```html
-// Vanilla JS
-// WARNING, you have to use the "vanilla" version of the script if running directly in a browser.
 <link rel="stylesheet" href="./nanolight.css">
 <script type="text/javascript" src="./nanolight-vanilla.js"></script>
 <script type="text/javascript">
@@ -21,8 +20,10 @@ highlight('pre code'); // Use any CSS query to select what elements to highlight
        console.timeEnd('SyntaxHighlight')
    }
 </script>
+```
 
-// Optional: Add lines to your code (see demo)
+## Optional: Add lines to your code (see demo)
+```html
 <link rel="stylesheet" href="./nanolight.css">
 <script type="text/javascript" src="./nanolight-vanilla.js"></script>
 <script type="text/javascript" src="./linify-vanilla.js"></script>
